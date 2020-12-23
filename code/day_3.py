@@ -20,4 +20,5 @@ def tree_count(path, right, down):
 path = filepath+'Day_3_Toboggan_Trajectory.txt'
 part_1 = tree_count(path,3,1)
 part_2 = tree_count(path,1,1)*tree_count(path,3,1)*tree_count(path,5,1)*tree_count(path,7,1)*tree_count(path,1,2)
-print(part_1, part_2)
+print('part 1:', part_1)
+print('part 2:', part_2)
