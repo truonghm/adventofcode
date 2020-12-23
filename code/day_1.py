@@ -1,24 +1,23 @@
-# day 1 - part 1
-
-import urllib.request
-url='https://raw.githubusercontent.com/truonghm/adventofcode/main/input/Day_1_Report_Repair.txt'
-exp=sorted([int(line.decode('utf-8').replace('\n','')) for line in urllib.request.urlopen(url)])
-exp_2 = [2020-i for i in exp]
-
-for i in exp_2:
-    if i in exp:
-        print(i*(2020-i))
-
-# day 1 - part 2
+# day 1
 
 import random
 from math import factorial, prod
-random.seed(a=12)
-exp_3=[i for i in exp if i+sum(exp[:2])<=2020]
-c=int(factorial(len(exp_3))/(factorial(3)*factorial(len(exp_3)-3)))
+filename = 'Day_2_Password_Philosophy.txt'
+with open(filepath+filename,'r') as f:
+    exp=sorted([int(line.replace('\n','')) for line in f])
+    exp_2 = [2020-i for i in exp]
 
-for i in range(c):
-    s = random.sample(exp_3, 3)
-    if sum(s) == 2020:
-        print(prod(s))
-        break
+    for i in exp_2:
+        if i in exp:
+            print('part 1:', i*(2020-i))
+            break
+
+    random.seed(a=12)
+    exp_3=[i for i in exp if i+sum(exp[:2])<=2020]
+    c=int(factorial(len(exp_3))/(factorial(3)*factorial(len(exp_3)-3)))
+
+    for i in range(c):
+        s = random.sample(exp_3, 3)
+        if sum(s) == 2020:
+            print('part 2:', prod(s))
+            break
