@@ -26,12 +26,11 @@ def find_seat(path, rows=128, cols=8):
 seat_ids = find_seat(filepath + 'Day_5_Binary_Boarding.txt')
 
 # part 1
-max_seat=max(seat_ids)
-print('highest seat ID is:', max_seat)
+print('highest seat ID is:', max(seat_ids))
 
 # part 2
 missing_seats=[i for i in range(max_seat) if i not in seat_ids and i-1 in seat_ids and i+1 in seat_ids]
 if len(missing_seats)==1:
     print('missing seat id is:', missing_seats[0])
 else:
-    print('missing seat id are:', missing_seats)
+    print('missing seat ids are:', missing_seats)
