@@ -24,8 +24,6 @@ def open_input(path):
                 content=bag[1].split(', ')
                 bag_dict[bag[0]]={get_amount(c)[0]: get_amount(c)[1] for c in content}
     return bag_dict
-            
-bag_dict=open_input(filepath+'Day_7_Handy_Haversacks.txt')
 
 def is_inside(bag_dict, bag, bag_inside):
     if list(bag_dict[bag].values())!=[0]:
@@ -41,6 +39,8 @@ def count_inside(bag_dict, bag):
         return sum(bag_dict[bag].values()) + sum([count_inside(bag_dict, k)*v for k,v in bag_dict[bag].items()])
     else:
         return 0
+    
+bag_dict=open_input(filepath+'Day_7_Handy_Haversacks.txt')
     
 print('part 1:', sum([1 for b in bag_dict.keys() if is_inside(bag_dict, b, 'shiny gold bag')!=0]))
 print('part 2:', count_inside(bag_dict, 'shiny gold bag'))
