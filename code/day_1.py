@@ -2,7 +2,7 @@
 
 import random
 from math import factorial, prod
-filename = 'Day_2_Password_Philosophy.txt'
+filename = 'Day_1_Report_Repair.txt'
 with open(filepath+filename,'r') as f:
     exp=sorted([int(line.replace('\n','')) for line in f])
     exp_2 = [2020-i for i in exp]
