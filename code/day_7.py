@@ -26,6 +26,10 @@ def open_input(path):
     return bag_dict
 
 def is_inside(bag_dict, bag, bag_inside):
+    """
+    recursively check if bag_inside is in bag.
+    check until the function arrives at a bag with no other bags inside.
+    """
     if list(bag_dict[bag].values())!=[0]:
         if bag_inside in bag_dict[bag].keys():
             return 1
