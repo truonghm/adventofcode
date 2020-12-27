@@ -1,5 +1,4 @@
 import os
-import itertools
 
 filename = os.path.basename(__file__).replace('.py','.txt')
 filepath = os.path.dirname(os.path.realpath(__file__)) + '\\input\\'
