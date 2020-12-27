@@ -1,4 +1,5 @@
 # day 4
+import os 
 
 def process_passport(path, validation=False):
     with open(path, 'r') as f:
@@ -60,6 +61,9 @@ def process_passport(path, validation=False):
                 
     return s
 
-path = filepath+'Day_4_Passport_Processing.txt'
+
+filename = os.path.basename(__file__).replace('.py','.txt')
+filepath = os.path.dirname(os.path.realpath(__file__)) + '\\input\\'
+path = filepath+filename
 print('part 1:', process_passport(path, validation=False))
 print('part 2:', process_passport(path, validation=True))

@@ -1,9 +1,19 @@
 # day 1
 
 import random
-from math import factorial, prod
-filename = 'Day_1_Report_Repair.txt'
-with open(filepath+filename,'r') as f:
+from math import factorial
+import os
+
+def prod(num_list) :
+    result = 1
+    for x in num_list:
+         result = result * x 
+    return result 
+
+
+filename = os.path.basename(__file__).replace('.py','.txt')
+filepath = os.path.dirname(os.path.realpath(__file__)) + '\\input\\'
+with open(filepath + filename,'r') as f:
     exp=sorted([int(line.replace('\n','')) for line in f])
     exp_2 = [2020-i for i in exp]
 

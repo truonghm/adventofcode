@@ -1,4 +1,5 @@
 # day 2
+import os
 
 def open_input(path):
     pw_list=[]
@@ -29,7 +30,9 @@ def day_2_part_2(pw_list):
             s = s + 1
     return s
 
-filename = 'Day_2_Password_Philosophy.txt'
+
+filename = os.path.basename(__file__).replace('.py','.txt')
+filepath = os.path.dirname(os.path.realpath(__file__)) + '\\input\\'
 pw_list=open_input(filepath+filename)
 print('part 1: ', day_2_part_1(pw_list))
 print('part 2: ', day_2_part_2(pw_list))

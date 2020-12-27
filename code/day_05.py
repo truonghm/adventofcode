@@ -1,6 +1,7 @@
 # day 5
 import math
- 
+import os 
+
 def log2(x):
     if x == 0:
         return false
@@ -23,10 +24,13 @@ def find_seat(path, rows=128, cols=8):
             seat_ids.append(cut_point(line[:7], rows)*8+cut_point(line[7:], cols))
     return seat_ids
 
-seat_ids = find_seat(filepath + 'Day_5_Binary_Boarding.txt')
 
+filename = os.path.basename(__file__).replace('.py','.txt')
+filepath = os.path.dirname(os.path.realpath(__file__)) + '\\input\\'
+seat_ids = find_seat(filepath + filename)
+max_seat = max(seat_ids)
 # part 1
-print('highest seat ID is:', max(seat_ids))
+print('highest seat ID is:', max_seat)
 
 # part 2
 missing_seats=[i for i in range(max_seat) if i not in seat_ids and i-1 in seat_ids and i+1 in seat_ids]

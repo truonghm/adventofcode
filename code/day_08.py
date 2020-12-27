@@ -1,4 +1,5 @@
 # day 8
+import os 
 
 def open_input(path):
     with open(path,'r') as f:
@@ -18,12 +19,12 @@ def next_inst(inst_dict, inst_id):
     """
     find the next step of a provided step in the instruction list
     """
-        step=inst_dict[inst_id]
-        if step[0] in ['acc','nop']:
-            next_inst_id=inst_id+1
-        else:
-            next_inst_id=inst_id+step[1]
-        return next_inst_id
+    step=inst_dict[inst_id]
+    if step[0] in ['acc','nop']:
+        next_inst_id=inst_id+1
+    else:
+        next_inst_id=inst_id+step[1]
+    return next_inst_id
 
 def inst_sequel(inst_dict):
     """
@@ -66,9 +67,11 @@ def fix_inst(inst_dict):
         test_list = inst_sequel(test_dict)
         if test_list[-1]==len(test_dict)-1:
             return test_dict
-        
-        
-inst_dict=open_input(filepath+'Day_8_Handheld_Halting.txt')
+
+
+filename = os.path.basename(__file__).replace('.py','.txt')
+filepath = os.path.dirname(os.path.realpath(__file__)) + '\\input\\'
+inst_dict=open_input(filepath+filename)
 inst_list=inst_sequel(inst_dict)
 acc_values = [inst_dict[inst_id][1] for inst_id in inst_list if inst_dict[inst_id][0]=='acc']
 

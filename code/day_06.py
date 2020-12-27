@@ -1,4 +1,6 @@
 # day 6
+import os
+
 def open_input(path):
     with open(path,'r') as f:
         sections = f.read().split("\n\n")
@@ -28,6 +30,9 @@ def day_6_part_2(answers):
         count=count+len(a_list)
     return count
 
-answers=open_input(filepath+'Day_6_Custom_Customs.txt')
+
+filename = os.path.basename(__file__).replace('.py','.txt')
+filepath = os.path.dirname(os.path.realpath(__file__)) + '\\input\\'
+answers=open_input(filepath+filename)
 print('part 1:', day_6_part_1(answers))
 print('part 2:', day_6_part_2(answers))
